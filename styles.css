@@ -1,0 +1,109 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: 'Roboto', sans-serif;
+    color: #4D4E53;
+    min-width: 280px;
+    max-width: 96vw;
+}
+
+.container {
+    display: flex;
+}
+
+#navbar {
+    display: flex;
+    flex-flow: column wrap;
+    flex: 1;
+    height: 100%;
+    border-right: 0.2rem solid black;
+    top: 0px;
+    left: 0px;
+    position: fixed;
+}
+
+#navbar header {
+    display: flex;
+    justify-content: center;
+    font-size: xx-large;
+    padding: 1rem;
+}
+
+header {
+    font-size: xx-large;
+    margin: 0.5rem;
+}
+
+p, h3 {
+    padding: 1rem;
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0.5rem 1rem 0.5rem 4rem;
+}
+
+#navbar ul {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+#navbar ul li {
+    list-style: none;
+}
+
+.nav-link {
+    border-top: 0.1rem solid black;
+    display: flex;
+    padding: 0.625rem 1.875rem;
+    text-decoration: none;
+    color: #4D4E53;
+}
+
+#main-doc {
+    display: flex;
+    flex-flow: row wrap;
+    flex: 3;
+    padding: 2rem;
+    margin-left: 370px;
+    height: 100%;
+}
+
+.main-section {
+    width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    padding: 1rem;
+}
+
+code {
+    display: flex;
+    text-align: left;
+    white-space: pre-line;
+    position: relative;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 2;
+    background-color: #e0dfdf;
+    padding: 1rem;
+    border-radius: 5px;
+    width: 100%;
+    height: auto;
+    flex-wrap: wrap;
+}
+
+span {
+    font-family: 'Rajdhani', sans-serif;
+    background-color: #dfdfdf;
+    border-radius: 0.1rem;
+    padding: 0.2rem;
+}
+
+p, li {
+    line-height: 1.6rem;
+}

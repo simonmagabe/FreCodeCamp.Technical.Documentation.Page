@@ -1,421 +1,467 @@
-<body>
-    <nav>
-        <header>Title of the Documentation</header>
-        <ul>
-            <li class="nav-link"><a href="#introduction">Introduction</a></li>
-            <li class="nav-link">
-                <a href="#apex_development_process">Apex Development Process</a>
-            </li>
-            <li class="nav-link">
-                <a href="#writing_apex">Writing Apex</a>
-            </li>
-            <li class="nav-link"><a href="#variables">Variables</a></li>
-            <li class="nav-link">
-                <a href="#declaring_variable">Declaring Variable</a>
-            </li>
-            <li class="nav-link"><a href="#variable_scope">Variable Scope</a></li>
-            <li class="nav-link"><a href="#case_sensitivity">Case Sensitivity</a></li>
-            <li class="nav-link"><a href="#constant">Constant</a></li>
-            <li class="nav-link"><a href="#data_types">Data types</a></li>
-            <li class="nav-link">
-                <a href="if_else_statement">Conditional (If-Else) Statements</a>
-            </li>
-            <li class="nav-link"><a href="#while_loops">While Loops</a></li>
-            <li class="nav-link">
-                <a href="#method_declarations">Method Declarations</a>
-            </li>
-            <li class="nav-link"><a href="#reference">Reference</a></li>
-        </ul>
-    </nav>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./media_queries.css">
+</head>
 
-    <main class="content">
-        <section class="mini-section" id="introduction">
-            <h1>Introduction</h1>
-            <h3>What is Apex?</h3>
-            <p>
-                Apex is a strongly typed, object-oriented programming language that
-                allows developers to execute flow and transaction control statements on
-                Salesforce servers in conjunction with calls to the API. Using syntax
-                that looks like Java and acts like database stored procedures, Apex
-                enables developers to add business logic to most system events,
-                including button clicks, related record updates, and Visualforce pages.
-                Apex code can be initiated by Web service requests and from triggers on
-                objects.
-            </p>
-            <p>You can add Apex to most system events.</p>
-            <p>As a language, Apex is:</p>
-            <section>
-                <h3>Integrated</h3>
+<body>
+    <article class="container">
+        <nav id="navbar">
+            <header>Apex Reference Guide</header>
+            <ul id="nav-items">
+                <li>
+                    <a class="nav-link" href="#Introduction">Introduction</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#Apex_Development_Process">Apex Development Process</a>
+                </li>
+                <li>
+                    <a class="nav-link" class="nav-link"href="#Writing_Apex">Writing Apex</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#Variables">Variables</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#Declaring_Variable">Declaring Variable</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#Variable_Scope">Variable Scope</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#Case_Sensitivity">Case Sensitivity</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#Constant">Constant</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#Data_Types">Data types</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#Conditional_(If-Else)_Statements">Conditional (If-Else) Statements</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#While_Loops">While Loops</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#Class_Methods">Class Methods</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#Reference">Reference</a>
+                </li>
+            </ul>
+        </nav>
+    
+        <main id="main-doc">
+            <section class="main-section" id="Introduction">
+                <header id="Introduction">Introduction</header>
+                <h3>What is Apex?</h3>
                 <p>
-                    Apex provides built-in support for common Lightning Platform idioms,
-                    including:
+                    Apex is a strongly typed, object-oriented programming language that
+                    allows developers to execute flow and transaction control statements on
+                    Salesforce servers in conjunction with calls to the API. Using syntax
+                    that looks like Java and acts like database stored procedures, Apex
+                    enables developers to add business logic to most system events,
+                    including button clicks, related record updates, and Visualforce pages.
+                    Apex code can be initiated by Web service requests and from triggers on
+                    objects.
+                </p>
+                <p>You can add Apex to most system events.</p>
+                <p>As a language, Apex is:</p>
+                <section>
+                    <h3>Integrated</h3>
+                    <p>
+                        Apex provides built-in support for common Lightning Platform idioms,
+                        including:
+                    </p>
+                    <ul>
+                        <li>
+                            Data manipulation language (DML) calls, such as INSERT, UPDATE, and
+                            DELETE, that include built-in DmlException handling
+                        </li>
+                        <li>
+                            Inline Salesforce Object Query Language (SOQL) and Salesforce Object
+                            Search Language (SOSL) queries that return lists of sObject records
+                        </li>
+                        <li>
+                            Looping that allows for bulk processing of multiple records at a
+                            time
+                        </li>
+                        <li>Locking syntax that prevents record update conflicts</li>
+                        <li>
+                            Custom public API calls that can be built from stored Apex methods
+                        </li>
+                        <li>
+                            Warnings and errors issued when a user tries to edit or delete a
+                            custom object or field that is referenced by Apex
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Easy to use</h3>
+                    <p>
+                        Apex is based on familiar Java idioms, such as variable and expression
+                        syntax, block and conditional statement syntax, loop syntax, object
+                        and array notation. Where Apex introduces new elements, it uses syntax
+                        and semantics that are easy to understand and encourage efficient use
+                        of the Lightning Platform. Therefore, Apex produces code that is both
+                        succinct and easy to write.
+                    </p>
+                </section>
+                <section>
+                    <h3>Data focused</h3>
+                    <p>
+                        Apex is designed to thread together multiple query and DML statements
+                        into a single unit of work on the Salesforce server. Developers use
+                        database stored procedures to thread together multiple transaction
+                        statements on a database server in a similar way. Like other database
+                        stored procedures, Apex does not attempt to provide general support
+                        for rendering elements in the user interface.
+                    </p>
+                </section>
+                <section>
+                    <h3>Rigorous</h3>
+                    <p>
+                        Apex is a strongly typed language that uses direct references to
+                        schema objects such as object and field names. It fails quickly at
+                        compile time if any references are invalid. It stores all custom
+                        field, object, and class dependencies in metadata to ensure that they
+                        are not deleted while required by active Apex code.
+                    </p>
+                </section>
+                <section>
+                    <h3>Hosted</h3>
+                    <p>
+                        Apex is interpreted, executed, and controlled entirely by the
+                        Lightning Platform.
+                    </p>
+                </section>
+                <section>
+                    <h3>Multitenant aware</h3>
+                    <p>
+                        Like the rest of the Lightning Platform, Apex runs in a multitenant
+                        environment. So, the Apex runtime engine is designed to guard closely
+                        against runaway code, preventing it from monopolizing shared
+                        resources. Any code that violates limits fails with easy-to-understand
+                        error messages.
+                    </p>
+                </section>
+                <section>
+                    <h3>Easy to test</h3>
+                    <p>
+                        Apex provides built-in support for unit test creation and execution.
+                        It includes test results that indicate how much code is covered, and
+                        which parts of your code could be more efficient. Salesforce ensures
+                        that all custom Apex code works as expected by executing all unit
+                        tests prior to any platform upgrades.
+                    </p>
+                </section>
+                <section>
+                    <h3>Versioned</h3>
+                    <p>
+                        You can save your Apex code against different versions of the API.
+                        This enables you to maintain behavior.
+                    </p>
+                    <p>
+                        Apex is included in Performance Edition, Unlimited Edition, Developer
+                        Edition, Enterprise Edition, and Database.com.
+                    </p>
+                </section>
+            </section>
+            <section class="main-section" id="Apex_Development_Process">
+                <header id="Apex_Development_Process">Apex Development Process</header>
+                <p>
+                    To develop Apex, get a Developer Edition account, write and test your
+                    code, then deploy your code.
+                </p>
+                <p>
+                    You can run Apex in a production org, a developer org, or a sandbox org.
+                    You can develop Apex in a developer org or a sandbox org, but not in a
+                    production org.
+                </p>
+                <p>
+                    After you have your developer account, there are many resources
+                    available to you for learning about Apex
+                </p>
+                <p>
+                    There are several development environments for developing Apex code. The
+                    Developer Console and the Salesforce extensions for Visual Studio Code
+                    allow you to write, test, and debug your Apex code. The code editor in
+                    the user interface enables only writing code and doesn’t support
+                    debugging.
+                </p>
+                <p>
+                    Testing is the key to successful long-term development and is a critical
+                    component of the development process. We strongly recommend that you use
+                    a test-driven development process, that is, test development that occurs
+                    at the same time as code development.
+                </p>
+                <p>
+                    Sandboxes create copies of your Salesforce org in separate environments.
+                    Use them for development, testing, and training without compromising the
+                    data and applications in your production org. Sandboxes are isolated
+                    from your production org, so operations that you perform in your
+                    sandboxes don’t affect your production org.
+                </p>
+                <p>
+                    After you have finished all of your unit tests and verified that your
+                    Apex code is executing properly, the final step is deploying Apex to
+                    your Salesforce production organization.
+                </p>
+                <p>
+                    You can include an Apex class or trigger in an app that you are creating
+                    for AppExchange.
                 </p>
                 <ul>
                     <li>
-                        Data manipulation language (DML) calls, such as INSERT, UPDATE, and
-                        DELETE, that include built-in DmlException handling
+                        A general understanding of the Internet and the World Wide Web (WWW).
                     </li>
                     <li>
-                        Inline Salesforce Object Query Language (SOQL) and Salesforce Object
-                        Search Language (SOSL) queries that return lists of sObject records
-                    </li>
-                    <li>
-                        Looping that allows for bulk processing of multiple records at a
-                        time
-                    </li>
-                    <li>Locking syntax that prevents record update conflicts</li>
-                    <li>
-                        Custom public API calls that can be built from stored Apex methods
-                    </li>
-                    <li>
-                        Warnings and errors issued when a user tries to edit or delete a
-                        custom object or field that is referenced by Apex
+                        Some programming experience. If you are new to programming, try one of
+                        the tutorials linked on the main page about JavaScript.
                     </li>
                 </ul>
             </section>
-            <section>
-                <h3>Easy to use</h3>
+            <section class="main-section" id="Writing_Apex">
+                <header id="Writing_Apex">Writing Apex</header>
                 <p>
-                    Apex is based on familiar Java idioms, such as variable and expression
-                    syntax, block and conditional statement syntax, loop syntax, object
-                    and array notation. Where Apex introduces new elements, it uses syntax
-                    and semantics that are easy to understand and encourage efficient use
-                    of the Lightning Platform. Therefore, Apex produces code that is both
-                    succinct and easy to write.
+                    Apex is like Java for Salesforce. It enables you to add and interact
+                    with data in the Lightning Platform persistence layer. It uses classes,
+                    data types, variables, and if-else statements. You can make it execute
+                    based on a condition, or have a block of code execute repeatedly.
                 </p>
             </section>
-            <section>
-                <h3>Data focused</h3>
+            <section class="main-section" id="Variables">
+                <header id="Variables">Variables</header>
                 <p>
-                    Apex is designed to thread together multiple query and DML statements
-                    into a single unit of work on the Salesforce server. Developers use
-                    database stored procedures to thread together multiple transaction
-                    statements on a database server in a similar way. Like other database
-                    stored procedures, Apex does not attempt to provide general support
-                    for rendering elements in the user interface.
+                    Local variables are declared with Java-style syntax. As with Java,
+                    multiple variables can be declared and initialized in a single
+                    statement.
                 </p>
             </section>
-            <section>
-                <h3>Rigorous</h3>
-                <p>
-                    Apex is a strongly typed language that uses direct references to
-                    schema objects such as object and field names. It fails quickly at
-                    compile time if any references are invalid. It stores all custom
-                    field, object, and class dependencies in metadata to ensure that they
-                    are not deleted while required by active Apex code.
-                </p>
+            <section class="main-section" id="Declaring_Variable">
+                <header id="Declaring_Variable">Declaring Variable</header>
+                <p>Local variables are declared with Java-style syntax. For example:</p>
+    
+                <code>1. Integer i = 0;
+                        2. String str;
+                        3. Boolean x = null;
+                        4. Decimal d;
+                        5. Date d;
+                        6. List&lt;String&gt; strList;
+                        7. Set&lt;String&gt; s;
+                        8. Map&lt;ID, String&gt; m;
+                    </code>
+    
+                <p>As with Java, multiple variables can be declared and initialized in a single statement, using comma
+                    separation. For example:</p>
+    
+                <code>1. Integer i, j, k;
+                    </code>
+    
             </section>
-            <section>
-                <h3>Hosted</h3>
-                <p>
-                    Apex is interpreted, executed, and controlled entirely by the
-                    Lightning Platform.
-                </p>
+            <section class="main-section" id="Variable_Scope">
+                <header id="Variable_Scope">Variable Scope</header>
+                <p>Variables can be defined at any point in a block, and take on scope from that point forward. Sub-blocks
+                    can’t redefine a variable name that has already been used in a parent block, but parallel blocks can
+                    reuse a variable name. For example:</p>
+    
+                <code>1. Integer i;
+                        2. {
+                        3.     // Integer i;  This declaration is not allowed
+                        4. }
+                        5. 
+                        6. for (Integer j = 0; j &lt; 10; j++);
+                        7. for (Integer j = 0; j &lt; 10; j++);
+                    </code>
+    
             </section>
-            <section>
-                <h3>Multitenant aware</h3>
-                <p>
-                    Like the rest of the Lightning Platform, Apex runs in a multitenant
-                    environment. So, the Apex runtime engine is designed to guard closely
-                    against runaway code, preventing it from monopolizing shared
-                    resources. Any code that violates limits fails with easy-to-understand
-                    error messages.
-                </p>
-            </section>
-            <section>
-                <h3>Easy to test</h3>
-                <p>
-                    Apex provides built-in support for unit test creation and execution.
-                    It includes test results that indicate how much code is covered, and
-                    which parts of your code could be more efficient. Salesforce ensures
-                    that all custom Apex code works as expected by executing all unit
-                    tests prior to any platform upgrades.
-                </p>
-            </section>
-            <section>
-                <h3>Versioned</h3>
-                <p>
-                    You can save your Apex code against different versions of the API.
-                    This enables you to maintain behavior.
-                </p>
-                <p>
-                    Apex is included in Performance Edition, Unlimited Edition, Developer
-                    Edition, Enterprise Edition, and Database.com.
-                </p>
-            </section>
-        </section>
-        <section class="mini-section" id="apex_development_process">
-            <h1>Apex Development Process</h1>
-            <p>
-                To develop Apex, get a Developer Edition account, write and test your
-                code, then deploy your code.
-            </p>
-            <p>
-                You can run Apex in a production org, a developer org, or a sandbox org.
-                You can develop Apex in a developer org or a sandbox org, but not in a
-                production org.
-            </p>
-            <p>
-                After you have your developer account, there are many resources
-                available to you for learning about Apex
-            </p>
-            <p>
-                There are several development environments for developing Apex code. The
-                Developer Console and the Salesforce extensions for Visual Studio Code
-                allow you to write, test, and debug your Apex code. The code editor in
-                the user interface enables only writing code and doesn’t support
-                debugging.
-            </p>
-            <p>
-                Testing is the key to successful long-term development and is a critical
-                component of the development process. We strongly recommend that you use
-                a test-driven development process, that is, test development that occurs
-                at the same time as code development.
-            </p>
-            <p>
-                Sandboxes create copies of your Salesforce org in separate environments.
-                Use them for development, testing, and training without compromising the
-                data and applications in your production org. Sandboxes are isolated
-                from your production org, so operations that you perform in your
-                sandboxes don’t affect your production org.
-            </p>
-            <p>
-                After you have finished all of your unit tests and verified that your
-                Apex code is executing properly, the final step is deploying Apex to
-                your Salesforce production organization.
-            </p>
-            <p>
-                You can include an Apex class or trigger in an app that you are creating
-                for AppExchange.
-            </p>
-            <ul>
+            <section class="main-section" id="Case_Sensitivity">
+                <header id="Case_Sensitivity">Case Sensitivity</header>
+                <p>To avoid confusion with case-insensitive SOQL and SOSL queries, Apex is also case-insensitive. This
+                    means:</p>
                 <li>
-                    A general understanding of the Internet and the World Wide Web (WWW).
+                    Variable and method names are case-insensitive. For example:
+    
+                    <code>1. Integer I;
+                        2. //Integer i;  This would be an error.
+                    </code>
+    
                 </li>
                 <li>
-                    Some programming experience. If you are new to programming, try one of
-                    the tutorials linked on the main page about JavaScript.
-                </li>
-            </ul>
-        </section>
-        <section class="mini-section" id="writing_apex">
-            <h1>Writing Apx</h1>
-            <p>
-                Apex is like Java for Salesforce. It enables you to add and interact
-                with data in the Lightning Platform persistence layer. It uses classes,
-                data types, variables, and if-else statements. You can make it execute
-                based on a condition, or have a block of code execute repeatedly.
-            </p>
-        </section>
-        <section class="mini-section" id="variables">
-            <h1>Variables</h1>
-            <p>
-                Local variables are declared with Java-style syntax. As with Java,
-                multiple variables can be declared and initialized in a single
-                statement.
-            </p>
-        </section>
-        <section class="mini-section" id="declaring_variable">
-            <h1>Declaring Variables</h1>
-            <p>Local variables are declared with Java-style syntax. For example:</p>
-            <code>
-            Integer i = 0;
-            String str;
-            Boolean x = null;
-            Decimal d;
-            Date d;
-            List<String> strList;
-            Set<String> s;
-            Map<ID, String> m;
-        </code>
-            <p>As with Java, multiple variables can be declared and initialized in a single statement, using comma
-                separation. For example:</p>
-            <code>
-            Integer i, j, k;
-        </code>
-        </section>
-        <section class="mini-section" id="variable_scope">
-            <h1>Variable Scope</h1>
-            <p>Variables can be defined at any point in a block, and take on scope from that point forward. Sub-blocks
-                can’t redefine a variable name that has already been used in a parent block, but parallel blocks can
-                reuse a variable name. For example:</p>
-            <code>
-            Integer i;
-            {
-                // Integer i;  This declaration is not allowed
-            }
-
-            for (Integer j = 0; j < 10; j++);
-            for (Integer j = 0; j < 10; j++);
-        </code>
-        </section>
-        <section class="mini-section" id="case_sensitivity">
-            <h1>Case Sensitivity</h1>
-            <p>To avoid confusion with case-insensitive SOQL and SOSL queries, Apex is also case-insensitive. This
-                means:</p>
-            <li>
-                Variable and method names are case-insensitive. For example:
-                <code>
-                Integer I;
-                //Integer i;  This would be an error.
-            </code>
-            </li>
-            <li>
-                References to object and field names are case-insensitive. For example:
-                <code>
-                Account a1;
-                ACCOUNT a2;
-            </code>
-            </li>
-            <li>
-                SOQL and SOSL statements are case- insensitive. For example:
-                <code>
-                Account[] accts = [sELect ID From ACCouNT where nAme = 'fred'];
-            </code>
-            </li>
-        </section>
-        <section class="mini-section" id="constant">
-            <h1>Constants</h1>
-            <p>Apex constants are variables whose values don’t change after being initialized once. Constants can be
-                defined using the final keyword.</p>
-            <p>The final keyword means that the variable can be assigned at most once, either in the declaration itself,
-                or with a static initializer method if the constant is defined in a class. This example declares two
-                constants. The first is initialized in the declaration statement. The second is assigned a value in a
-                static block by calling a static method.</p>
-
-            <code>
-                    public class myCls {
-                        static final Integer PRIVATE_INT_CONST = 200;
-                        static final Integer PRIVATE_INT_CONST2; 
-                     
-                        public static Integer calculate() {
-                            return 2 + 7;
-                        }
-                     
-                        static {
-                            PRIVATE_INT_CONST2 = calculate();
-                        }
-                     }
+                    References to object and field names are case-insensitive. For example:
+                    <code>1. Account a1;
+                        2. ACCOUNT a2;
                 </code>
-        </section>
-        <section class="mini-section" id="data_types">
-            <h1>Data Types</h1>
-            <p>In Apex, all variables and expressions have a data type, such as sObject, primitive, or enum.</p>
-            <li>A primitive, such as an Integer, Double, Long, Date, Datetime, String, ID, or Boolean</li>
-            <li>An sObject, either as a generic sObject or as a specific sObject, such as an Account, Contact, or
-                MyCustomObject__c</li>
-            <li>A collection, including:
-            <li>A list (or array) of primitives, sObjects, user defined objects, objects created from Apex classes, or
-                collections</li>
-            <li>A set of primitives</li>
-            <li>A map from a primitive to a primitive, sObject, or collection</li>
-            </li>
-            <li>A typed list of values, also known as an enum</li>
-            <li>Objects created from user-defined Apex classes</li>
-            <li>Objects created from system supplied Apex classes</li>
-            <li>Null (for the null constant, which can be assigned to any variable)</li>
-            <p>Methods can return values of any of the listed types, or return no value and be of type Void.</p>
-            <p>Type checking is strictly enforced at compile time. For example, the parser generates an error if an
-                object field of type Integer is assigned a value of type String. However, all compile-time exceptions
-                are returned as specific fault codes, with the line number and column of the error.</p>
-        </section>
-        <section class="mini-section" id="if_else_statement">
-            <h1>Conditional (If-Else) Statements</h1>
-            <p>The conditional statement in Apex works similarly to Java.</p>
-            <code>
-                if ([Boolean_condition]) 
-                    // Statement 1
-                else
-                    // Statement 2
-            </code>
-            <p>The else portion is always optional, and always groups with the closest if. For example:</p>
-            <code>
-                Integer x, sign;
-                // Your code
-                if (x <= 0) if (x == 0) sign = 0; else sign = -1;
-            </code>
-            <p>is equivalent to:</p>
-            <code>
-                Integer x, sign;
-                // Your code
-                if (x <= 0) {
-                    if (x == 0) {
-                           sign = 0; 
-                    } else  {
-                           sign = -1;
-                    }
-                }
-            </code>
-            <p>Repeated else if statements are also allowed. For example:</p>
-            <code>
-                if (place == 1) {
-                    medal_color = 'gold';
-                } else if (place == 2) {
-                    medal_color = 'silver';
-                } else if (place == 3) {
-                    medal_color = 'bronze';
-                } else {
-                    medal_color = null;
-                }
-            </code>
-        </section>
-        <section class="mini-section" id="while_loops">
-            <h1>While Loops</h1>
-            <p>The Apex while loop repeatedly executes a block of code as long as a particular Boolean condition remains
-                true. Its syntax is:</p>
-            <code>
-                while (condition) {
-                    code_block
-                }
-            </code>
-            <p>
-                Unlike do-while, the while loop checks the Boolean condition statement before the first loop is
-                executed. Consequently, it is possible for the code block to never execute.
-            </p>
-            <p>As an example, the following code outputs the numbers 1 - 10 into the debug log:</p>
-            <code>
-                Integer count = 1;
-
-                while (count < 11) {
-                    System.debug(count);
-                    count++;
-                }
-            </code>
-        </section>
-        <section class="mini-section" id="method_declarations">
-            <h1>Class Methods</h1>
-            <p>To define a method, specify the following:</p>
-            <li>Optional: Modifiers, such as <code>public</code> or <code>protected</code>.</li>
-            <li>
-                Required: The data type of the value returned by the method, such as String or Integer. Use void if the
-                method doesn’t return a value.
-            </li>
-            <li>
-                Required: A list of input parameters for the method, separated by commas, each preceded by its data
-                type, and enclosed in parentheses ()<code></code>. If there are no parameters, use a set of empty
-                parentheses. A method can only have 32 input parameters.
-            </li>
-            <li>
-                Required: The body of the method, enclosed in braces {}. All the code for the method, including any
-                local variable declarations, is contained here.
-            </li>
-            <p>Use the following syntax when defining a method:</p>
-            <code>
-                [public | private | protected | global] [override] [static] data_type method_name 
-                (input parameters) 
-                {
-                // The body of the method
-                }
-            </code>
-        </section>
-        <section class="mini-section" id="reference">
-            <h1>Reference</h1>
-            <li>
-                All the documentation in this page is taken from
-                <a href="https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_dev_guide.htm">
-                    Apex Developer Guide
-                </a>
-            </li>
-        </section>
-    </main>
+                </li>
+                <li>
+                    SOQL and SOSL statements are case- insensitive. For example:
+                    <code>1. Account[] accts = [sELect ID From ACCouNT where nAme = 'fred'];
+                    </code>
+                </li>
+            </section>
+            <section class="main-section" id="Constant">
+                <header id="Constant">Constant</header>
+                <p>Apex constants are variables whose values don’t change after being initialized once. Constants can be
+                    defined using the final keyword.</p>
+                <p>The final keyword means that the variable can be assigned at most once, either in the declaration itself,
+                    or with a static initializer method if the constant is defined in a class. This example declares two
+                    constants. The first is initialized in the declaration statement. The second is assigned a value in a
+                    static block by calling a static method.</p>
+    
+    
+                <code>1.  public class myCls {
+                    2.      static final Integer PRIVATE_INT_CONST = 200;
+                    3.      static final Integer PRIVATE_INT_CONST2; 
+                    4. 
+                    5.      public static Integer calculate() {
+                    7.      &nbsp;&nbsp; return 2 + 7;
+                    8.      }
+                    9. 
+                    10.     static {
+                    11.     &nbsp;&nbsp; PRIVATE_INT_CONST2 = calculate();
+                    12.     }
+                    13.  }
+                </code>
+    
+            </section>
+            <section class="main-section" id="Data_Types">
+                <header id="Data_Types">Data Types</header>
+                <p>In Apex, all variables and expressions have a data type, such as sObject, primitive, or enum.</p>
+                <li>A primitive, such as an Integer, Double, Long, Date, Datetime, String, ID, or Boolean</li>
+                <li>An sObject, either as a generic sObject or as a specific sObject, such as an Account, Contact, or
+                    MyCustomObject__c</li>
+                <li>A collection, including:
+                <li>A list (or array) of primitives, sObjects, user defined objects, objects created from Apex classes, or
+                    collections</li>
+                <li>A set of primitives</li>
+                <li>A map from a primitive to a primitive, sObject, or collection</li>
+                </li>
+                <li>A typed list of values, also known as an enum</li>
+                <li>Objects created from user-defined Apex classes</li>
+                <li>Objects created from system supplied Apex classes</li>
+                <li>Null (for the null constant, which can be assigned to any variable)</li>
+                <p>Methods can return values of any of the listed types, or return no value and be of type Void.</p>
+                <p>Type checking is strictly enforced at compile time. For example, the parser generates an error if an
+                    object field of type Integer is assigned a value of type String. However, all compile-time exceptions
+                    are returned as specific fault codes, with the line number and column of the error.</p>
+            </section>
+            <section class="main-section" id="Conditional_(If-Else)_Statements">
+                <header id="Conditional_(If-Else)_Statements">Conditional (If-Else) Statements</header>
+                <p>The conditional statement in Apex works similarly to Java.</p>
+    
+                <code>1. if ([Boolean_condition]) 
+                    2.     // Statement 1
+                    3. else
+                    4.     // Statement 2
+                </code>
+    
+                <p>The else portion is always optional, and always groups with the closest if. For example:</p>
+    
+                <code>1. Integer x, sign;
+                    2. // Your code
+                    3. if (x <= 0) if (x == 0) sign = 0; else sign = -1;
+                </code>
+    
+                <p>is equivalent to:</p>
+    
+                <code>1.    Integer x, sign;
+                    2.    // Your code
+                    3.    if (x <= 0) {
+                    4.    &nbsp;&nbsp;if (x == 0) {
+                    5.    &nbsp;&nbsp;&nbsp;&nbsp;sign = 0; 
+                    6.    &nbsp;&nbsp;} else  {
+                    7.    &nbsp;&nbsp;&nbsp;&nbsp;sign = -1;
+                    8.    &nbsp;&nbsp;}
+                    9.    }
+                </code>
+    
+                <p>Repeated else if statements are also allowed. For example:</p>
+    
+                <code>
+                    1.    if (place == 1) {
+                    2.    &nbsp;&nbsp;medal_color = 'gold';
+                    3.    } else if (place == 2) {
+                    4.    &nbsp;&nbsp;medal_color = 'silver';
+                    5.    } else if (place == 3) {
+                    6.    &nbsp;&nbsp;medal_color = 'bronze';
+                    7.    } else {
+                    8.    &nbsp;&nbsp;medal_color = null;
+                    9.    }
+                </code>
+    
+            </section>
+            <section class="main-section" id="While_Loops">
+                <header id="While_Loops">While Loops</header>
+                <p>The Apex while loop repeatedly executes a block of code as long as a particular Boolean condition remains
+                    true. Its syntax is:</p>
+    
+                <code>1.  while (condition) {
+                    2.    &nbsp;&nbsp;code_block
+                    3.    }
+                </code>
+    
+                <p>
+                    Unlike do-while, the while loop checks the Boolean condition statement before the first loop is
+                    executed. Consequently, it is possible for the code block to never execute.
+                </p>
+                <p>As an example, the following code outputs the numbers 1 - 10 into the debug log:</p>
+    
+                <code>1.  Integer count = 1;
+                    2.
+                    3.    while (count < 11) {
+                    4.    &nbsp;&nbsp;System.debug(count);
+                    5.    &nbsp;&nbsp;count++;
+                    6.    }
+                </code>
+    
+            </section>
+            <section class="main-section" id="Class_Methods">
+                <header id="Class_Methods">Class Methods</header>
+                <p>To define a method, specify the following:</p>
+                <li>Optional: Modifiers, such as <span>public</span> or <span>protected</span>.</li>
+                <li>
+                    Required: The data type of the value returned by the method, such as String or Integer. Use void if the
+                    method doesn’t return a value.
+                </li>
+                <li>
+                    Required: A list of input parameters for the method, separated by commas, each preceded by its data
+                    type, and enclosed in parentheses <span>()</span>. If there are no parameters, use a set of empty
+                    parentheses. A method can only have 32 input parameters.
+                </li>
+                <li>
+                    Required: The body of the method, enclosed in braces {}. All the code for the method, including any
+                    local variable declarations, is contained here.
+                </li>
+                <p>Use the following syntax when defining a method:</p>
+    
+                <code>1.  [public | private | protected | global] [override] [static] data_type method_name 
+                    2.    (input parameters) 
+                    3.    {
+                    4.      // The body of the method
+                    5.    }
+                    </code>
+    
+            </section>
+            <section class="main-section" id="Reference">
+                <header id="Reference">Reference</header>
+                <li>
+                    All the documentation in this page is taken from
+                    <a href="https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_dev_guide.htm">
+                        Apex Developer Guide
+                    </a>
+                </li>
+            </section>
+        </main>
+    </article>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 </body>
